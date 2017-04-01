@@ -6,7 +6,7 @@ import socket
 import sys
 
 HOST = ''   # Symbolic name, meaning all available interfaces
-PORT = 8888 # Arbitrary non-privileged port
+PORT = 8080 # Arbitrary non-privileged port
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print 'Socket created'
@@ -29,5 +29,7 @@ while 1:
     #wait to accept a connection - blocking call
     conn, addr = s.accept()
     print 'Connected with ' + addr[0] + ':' + str(addr[1])
+    s.send("Hello")
+    s.close()
 
-s.close()
+#s.close()
