@@ -5,6 +5,9 @@
 import socket
 import sys
 
+def swing():
+    return "swing function completed"
+
 HOST = ''   # Symbolic name, meaning all available interfaces
 PORT = 8080 # Arbitrary non-privileged port
 
@@ -40,8 +43,6 @@ while 1:
         conn.send(output)
         s.close()
 
-def swing():
-    return "swing function completed"
 
 
 s.close()
