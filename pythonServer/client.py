@@ -6,7 +6,7 @@ port = 8080                # Reserve a port for your service.
 s.connect(("192.168.1.85", port))
 #s.send("swing")
 #while(1):
-s.sendall("Hello")
-
+s.sendall("swing")
+print s.recv(8080)
 
 s.close                    # Close the socket when done

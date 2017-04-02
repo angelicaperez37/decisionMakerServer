@@ -34,9 +34,14 @@ while 1:
     if data == 'q' or data == 'Q':
         s.close()
         break
-    elif data != '':
+    elif data == 'swing':
         print 'Received: ' + data
-    #s.close()
+        output = swing()
+        conn.send(output)
+        s.close()
+
+def swing():
+    return "swing function completed"
 
 
 s.close()
