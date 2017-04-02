@@ -12,7 +12,7 @@ def swing():
     #img_file = open('images/living_room.jpg', "rb")               #read image
     #img = img_file.read()
     servo.swing()
-    sleep(10)
+    sleep(30)
     call(['raspistill', '-o', 'images/result.jpg'])
     return 'images/result.jpg'
 
