@@ -30,7 +30,7 @@ while 1:
     conn, addr = s.accept()
     print 'Connected with ' + addr[0] + ':' + str(addr[1])
     #conn.send("Hello")
-    data = s.recv(8080)
+    data = s.recv(1024)
     if data == 'q' or data == 'Q':
         s.close()
         break
