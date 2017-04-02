@@ -5,12 +5,16 @@
 import socket
 import sys
 import servo
+from time import sleep
+from subprocess import call
 
 def swing():
     #img_file = open('images/living_room.jpg', "rb")               #read image
     #img = img_file.read()
     servo.swing()
-    return 'images/living_room.jpg'
+    sleep(10)
+    call(['raspistill', '-o', 'images/result.jpg'])
+    return 'images/result.jpg'
 
 def main(args):
 
