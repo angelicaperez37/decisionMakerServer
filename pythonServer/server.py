@@ -9,12 +9,10 @@ from time import sleep
 from subprocess import call
 
 def swing():
-    #img_file = open('images/living_room.jpg', "rb")               #read image
-    #img = img_file.read()
     servo.swing()
     sleep(30)
-    call(['raspistill', '-o', 'images/result.jpg'])
-    return 'images/result.jpg'
+    call(['raspistill', '-e', 'png', '-o', 'images/result.png'])
+    return 'images/result.png'
 
 def main(args):
 

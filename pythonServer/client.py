@@ -7,11 +7,9 @@ def main(args):
     port = 8080                # Reserve a port for your service.
 
     s.connect(("192.168.1.92", port))
-    #s.send("swing")
-    #while(1):
     s.sendall("swing")
 
-    f = open('img.jpg','wb')
+    f = open('img.png','wb')
 
     print "Receiving..."
     l = s.recv(1024)
