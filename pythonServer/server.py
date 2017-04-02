@@ -29,7 +29,7 @@ while 1:
     #wait to accept a connection - blocking call
     conn, addr = s.accept()
     print 'Connected with ' + addr[0] + ':' + str(addr[1])
-    s.send("Hello")
+    conn.send("Hello")
     s.close()
 
 #s.close()
