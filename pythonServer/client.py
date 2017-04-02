@@ -1,8 +1,15 @@
 import socket              # Import socket module
 
 s = socket.socket()        # Create a socket object
-port = 80                # Reserve a port for your service.
+port = 8080                # Reserve a port for your service.
 
-s.connect(("75.37.194.102", port))
-print s.recv(80)
+s.connect(("192.168.1.85", port))
+while(1):
+    data = s.recv(8080)
+    if data == 'q' or data == 'Q':
+        s.close()
+        break
+    elif data != '':
+        print 'Received: ' + data
+
 s.close                    # Close the socket when done
