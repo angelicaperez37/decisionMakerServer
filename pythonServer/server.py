@@ -8,7 +8,7 @@ import sys
 def swing():
     img_file = open('images/living_room.jpg', "rb")               #read image
     img = img_file.read()
-    return img
+    return 'images/living_room.jpg'
 
 def main(args):
 
@@ -43,8 +43,14 @@ def main(args):
             break
         elif data == 'swing':
             print 'Received: ' + data
-            output = swing()
-            conn.send(output)
+            filePath = swing()
+            f = open(filePath,'rb')
+            print 'Sending...'
+            l = f.read(1024)
+            while (l):
+                print 'Sending...'
+                s.send(l)
+                l = f.read(1024)
             s.close()
             break
 

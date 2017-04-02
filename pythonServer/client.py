@@ -9,12 +9,16 @@ s.connect(("192.168.1.85", port))
 #s.send("swing")
 #while(1):
 s.sendall("swing")
-data_received = s.recv(8080)
 
 f = open('img.jpg','wb')
-f.write(data_received)
-f.close()
 
+print "Receiving..."
+l = s.recv(1024)
+while (l):
+    print "Receiving..."
+    f.write(l)
+    l = s.recv(1024)
+f.close()
 print "Done Receiving"
 
 s.close                    # Close the socket when done
