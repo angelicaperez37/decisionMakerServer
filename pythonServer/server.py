@@ -21,7 +21,7 @@ except socket.error as msg:
 print 'Socket bind complete'
 
 #Start listening on socket
-s.listen(10)
+s.listen(8080)
 print 'Socket now listening'
 
 #now keep talking with the client
