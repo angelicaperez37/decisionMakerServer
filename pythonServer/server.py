@@ -6,7 +6,9 @@ import socket
 import sys
 
 def swing():
-    return "swing function completed"
+    img_file = open('images/living_room.jpg', "rb")               #read image
+    img = img_file.read()
+    return img
 
 def main(args):
 
