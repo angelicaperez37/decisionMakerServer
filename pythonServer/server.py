@@ -29,13 +29,14 @@ while 1:
     #wait to accept a connection - blocking call
     conn, addr = s.accept()
     print 'Connected with ' + addr[0] + ':' + str(addr[1])
-    conn.send("Hello")
-    '''data = conn.recv()
+    #conn.send("Hello")
+    data = s.recv(8080)
     if data == 'q' or data == 'Q':
         s.close()
-    elif data == 'swing':
-        print data
+        break
+    elif data != '':
+        print 'Received: ' + data
     #s.close()
-    '''
+
 
 s.close()
