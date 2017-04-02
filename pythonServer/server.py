@@ -7,8 +7,8 @@ import sys
 
 def swing():
     img_file = open('images/living_room.jpg', "rb")               #read image
-    #img = img_file.read()
-    return img_file
+    img = img_file.read()
+    return img
 
 def main(args):
 
