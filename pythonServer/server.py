@@ -49,7 +49,7 @@ def main(args):
             l = f.read(1024)
             while (l):
                 print 'Sending...'
-                s.send(l)
+                conn.send(l)
                 l = f.read(1024)
             s.close()
             break
