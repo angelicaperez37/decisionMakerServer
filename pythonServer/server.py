@@ -44,7 +44,8 @@ def main(args):
             output = swing()
             conn.send(output)
             s.close()
+            break
 
-    s.close()
+    #s.close()
 
 main([])
