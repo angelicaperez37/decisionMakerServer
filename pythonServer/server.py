@@ -30,11 +30,12 @@ while 1:
     conn, addr = s.accept()
     print 'Connected with ' + addr[0] + ':' + str(addr[1])
     conn.send("Hello")
-    data = conn.recv()
+    '''data = conn.recv()
     if data == 'q' or data == 'Q':
         s.close()
     elif data == 'swing':
         print data
     #s.close()
+    '''
 
 s.close()
