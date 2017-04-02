@@ -47,4 +47,4 @@ def main(args):
 
     s.close()
 
-main()
+main([])
