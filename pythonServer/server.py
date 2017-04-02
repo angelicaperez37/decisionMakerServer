@@ -55,8 +55,8 @@ def main(args):
                 print 'Sending...'
                 conn.send(l)
                 l = f.read(1024)
-            s.close()
-            break
+           # s.close()
+           # break
 
     #s.close()
 
