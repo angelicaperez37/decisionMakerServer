@@ -9,19 +9,12 @@ s.connect(("192.168.1.85", port))
 #s.send("swing")
 #while(1):
 s.sendall("swing")
-print s.recv(8080)
+data_received = s.recv(8080)
 
-f = open('torecv.png','wb')
-'''while True:
-    c, addr = s.accept()     # Establish connection with client.
-    print 'Got connection from', addr
-    print "Receiving..."
-    l = c.recv(1024)
-    while (l):
-        print "Receiving..."
-        f.write(l)
-        l = c.recv(1024)
-    f.close()
-    print "Done Receiving"
-'''
+f = open('img.jpg','wb')
+f.write(data_received)
+f.close()
+
+print "Done Receiving"
+
 s.close                    # Close the socket when done
