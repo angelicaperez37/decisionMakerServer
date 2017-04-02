@@ -4,10 +4,12 @@
 
 import socket
 import sys
+import servo
 
 def swing():
-    img_file = open('images/living_room.jpg', "rb")               #read image
-    img = img_file.read()
+    #img_file = open('images/living_room.jpg', "rb")               #read image
+    #img = img_file.read()
+    servo.swing()
     return 'images/living_room.jpg'
 
 def main(args):
