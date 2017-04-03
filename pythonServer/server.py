@@ -35,6 +35,9 @@ def main(args):
     s.listen(8080)
     print 'Socket now listening'
 
+    #Initialize servo
+    servo.init()
+
     #now keep talking with the client
     while 1:
         #wait to accept a connection - blocking call
