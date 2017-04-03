@@ -11,10 +11,9 @@ def main(args):
 
     f = open('img.png','wb')
 
-    print "Receiving..."
     l = s.recv(1024)
+    print "Receiving..."
     while (l):
-        print "Receiving..."
         f.write(l)
         l = s.recv(1024)
     f.close()
