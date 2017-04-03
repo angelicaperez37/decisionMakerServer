@@ -8,12 +8,12 @@ PIN = 18
 PWM_0 = 50
 PWM_180 = 250
 
-def swing():
+def init():
     # use 'GPIO naming'
     wiringpi.wiringPiSetupGpio()
 
     # set #PIN to be a PWM output
-    wiringpi.PINMode(PIN, wiringpi.GPIO.PWM_OUTPUT)
+    wiringpi.pinMode(PIN, wiringpi.GPIO.PWM_OUTPUT)
 
     # set the PWM mode to milliseconds stype
     wiringpi.pwmSetMode(wiringpi.GPIO.PWM_MODE_MS)
