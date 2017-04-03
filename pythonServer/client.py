@@ -13,7 +13,7 @@ def main(args):
 
     l = s.recv(1024)
     print "Receiving..."
-    while (l):
+    while ("END_OF_FILE" not in l):
         f.write(l)
         l = s.recv(1024)
     f.close()
