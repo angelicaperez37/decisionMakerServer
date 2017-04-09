@@ -11,7 +11,7 @@ from subprocess import call
 def swing():
     servo.swing()
     sleep(40)
-    call(['raspistill', '-e', 'jpg', '-o', 'images/result.png'])
+    call(['raspistill', '-e', 'png', '-o', 'images/result.png'])
     return 'images/result.png'
 
 def main(args):
@@ -31,20 +31,19 @@ def main(args):
 
     print 'Socket bind complete'
 
-    #Start listening on socket
-    s.listen(8080)
-    print 'Socket now listening'
-
     #Initialize servo
     servo.init()
 
     #now keep talking with the client
     while 1:
+        #Start listening
+        s.listen(PORT)
+        print 'Socket now listening.'
         #wait to accept a connection - blocking call
         conn, addr = s.accept()
         print 'Connected with ' + addr[0] + ':' + str(addr[1])
         #conn.send("Hello")
-        data = conn.recv(8080)
+        data = conn.recv(PORT)
         if data == 'q' or data == 'Q':
             s.close()
             break
@@ -57,10 +56,7 @@ def main(args):
             while (l):
                 conn.send(l)
                 l = f.read(1024)
+	    conn.send("END_OF_FILE")
             print 'Done sending.'
-           # s.close()
-           # break
-
-    #s.close()
 
 main([])
