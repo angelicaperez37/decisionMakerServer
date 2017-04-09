@@ -11,11 +11,11 @@ def main(args):
 
     f = open('img.png','wb')
 
-    l = s.recv(1024)
+    l = s.recv(4096)
     print "Receiving..."
     while ("END_OF_FILE" not in l):
         f.write(l)
-        l = s.recv(1024)
+        l = s.recv(4096)
     f.close()
     print "Done Receiving"
 
