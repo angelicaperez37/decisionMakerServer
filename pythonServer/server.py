@@ -10,9 +10,9 @@ from subprocess import call
 
 def swing():
     servo.swing()
-    sleep(40)
-    call(['raspistill', '-e', 'png', '-o', 'images/result.png'])
-    return 'images/result.png'
+    sleep(20)
+    call(['raspistill', '-e', 'png','-ss', '10000', '-o', '/tmp/result.png'])
+    return '/tmp/result.png'
 
 def main(args):
 
@@ -31,17 +31,19 @@ def main(args):
 
     print 'Socket bind complete'
 
-    #Start listening on socket
-    s.listen(8080)
-    print 'Socket now listening'
+    #Initialize servo
+    servo.init()
 
     #now keep talking with the client
     while 1:
+        #Start listening
+        s.listen(PORT)
+        print 'Socket now listening.'
         #wait to accept a connection - blocking call
         conn, addr = s.accept()
         print 'Connected with ' + addr[0] + ':' + str(addr[1])
         #conn.send("Hello")
-        data = conn.recv(8080)
+        data = conn.recv(PORT)
         if data == 'q' or data == 'Q':
             s.close()
             break
@@ -50,14 +52,11 @@ def main(args):
             filePath = swing()
             f = open(filePath,'rb')
             print 'Sending...'
-            l = f.read(1024)
+            l = f.read(4096)
             while (l):
-                print 'Sending...'
                 conn.send(l)
-                l = f.read(1024)
-            s.close()
-            break
-
-    #s.close()
+                l = f.read(4096)
+	    conn.send("END_OF_FILE")
+            print 'Done sending.'
 
 main([])

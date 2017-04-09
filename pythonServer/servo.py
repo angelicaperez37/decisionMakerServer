@@ -4,14 +4,16 @@
 import time
 import wiringpi
 
-def swing():
+PIN = 18
+PWM_0 = 50
+PWM_180 = 250
+
+def init():
     # use 'GPIO naming'
     wiringpi.wiringPiSetupGpio()
 
-    pin = 18
-
-    # set #pin to be a PWM output
-    wiringpi.pinMode(pin, wiringpi.GPIO.PWM_OUTPUT)
+    # set #PIN to be a PWM output
+    wiringpi.pinMode(PIN, wiringpi.GPIO.PWM_OUTPUT)
 
     # set the PWM mode to milliseconds stype
     wiringpi.pwmSetMode(wiringpi.GPIO.PWM_MODE_MS)
@@ -20,18 +22,8 @@ def swing():
     wiringpi.pwmSetClock(192)
     wiringpi.pwmSetRange(2000)
 
-    #delay_period = 0.01
-
-    wiringpi.pwmWrite(pin,50)
-
+def swing():
+    wiringpi.pwmWrite(PIN,PWM_0)
     time.sleep(2)
+    wiringpi.pwmWrite(PIN,PWM_180)
 
-    wiringpi.pwmWrite(pin,250)
-
-    #while True:
-    #        for pulse in range(50, 250, 1):
-    #                wiringpi.pwmWrite(pin, pulse)
-    #                time.sleep(delay_period)
-    #        for pulse in range(250, 50, -1):
-    #                wiringpi.pwmWrite(pin, pulse)
-    #                time.sleep(delay_period)
