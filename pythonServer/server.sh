@@ -2,4 +2,4 @@
 
 #Run server.py 
 
-/usr/bin/python $HOME/workspace/decisionMakerServer/pythonServer/server.py &
+sudo /usr/bin/python $HOME/workspace/decisionMakerServer/pythonServer/server.py &
