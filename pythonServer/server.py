@@ -11,8 +11,8 @@ from subprocess import call
 def swing():
     servo.swing()
     sleep(20)
-    call(['raspistill', '-e', 'png','-ss', '10000', '-o', 'images/result.png'])
-    return 'images/result.png'
+    call(['raspistill', '-e', 'png','-ss', '10000', '-o', '/tmp/result.png'])
+    return '/tmp/result.png'
 
 def main(args):
 
