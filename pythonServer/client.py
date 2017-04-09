@@ -11,14 +11,14 @@ def main(args):
 
     f = open('img.png','wb')
 
-    print "Receiving..."
+    print ("Receiving...")
     l = s.recv(1024)
     while (l):
         print "Receiving..."
         f.write(l)
         l = s.recv(1024)
     f.close()
-    print "Done Receiving"
+    print ("Done Receiving")
 
     s.close                    # Close the socket when done
 

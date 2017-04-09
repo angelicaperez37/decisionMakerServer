@@ -1,0 +1,11 @@
+{
+  "name": "heroku-repository-name",
+  "version": "1.0.0",
+  "description": "Magic Pendulum",
+  "scripts": {
+    "start": "harp server --port $PORT"
+  },
+  "dependencies": {
+    "harp": "*"
+  }
+}
