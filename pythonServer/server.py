@@ -10,8 +10,8 @@ from subprocess import call
 
 def swing():
     servo.swing()
-    sleep(40)
-    call(['raspistill', '-e', 'png', '-o', 'images/result.png'])
+    sleep(20)
+    call(['raspistill', '-e', 'png','-ss', '10000', '-o', 'images/result.png'])
     return 'images/result.png'
 
 def main(args):
@@ -52,10 +52,10 @@ def main(args):
             filePath = swing()
             f = open(filePath,'rb')
             print 'Sending...'
-            l = f.read(1024)
+            l = f.read(4096)
             while (l):
                 conn.send(l)
-                l = f.read(1024)
+                l = f.read(4096)
 	    conn.send("END_OF_FILE")
             print 'Done sending.'
 
